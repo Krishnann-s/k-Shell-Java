@@ -57,10 +57,11 @@ public class Main {
             }
 
             List<String> cmdList = new ArrayList<>();
-            cmdList.add(path);
+            cmdList.add(command);
             cmdList.addAll(List.of(args));
 
             ProcessBuilder pb = new ProcessBuilder(cmdList);
+            pb.directory(null);
             Process process = pb.start();
 
             try(BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()))) {
