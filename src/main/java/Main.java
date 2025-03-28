@@ -30,7 +30,11 @@ public class Main {
                         System.out.println(input + ": command not found");
                     }
                 }
-                case "echo" -> System.out.println(String.join(" " + parameters));
+                case "echo" -> {
+                    if (parameters.length > 0) {
+                        System.out.println(String.join(" ", parameters));
+                    }
+                }
                 case "type" -> {
                     if (builtins.contains(parameters[0])) {
                         System.out.println(parameters[0] + " is a shell builtin");
