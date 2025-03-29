@@ -3,6 +3,7 @@ import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -46,6 +47,9 @@ public class Main {
                             System.out.println(parameters[0] + ": not found");
                         }
                     }
+                }
+                case "pwd" -> {
+                    System.out.println(System.getProperty("user.dir"));
                 }
                 default -> runExternalCommand(command, parameters);
             }
@@ -95,6 +99,7 @@ public class Main {
         builtins.add("exit");
         builtins.add("echo");
         builtins.add("type");
+        builtins.add("pwd");
         return builtins;
     }
 }
